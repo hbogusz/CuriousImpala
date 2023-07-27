@@ -25,28 +25,6 @@ export default class testTable extends LightningElement {
             fieldName: 'phone',
             type: 'phone',
             hideDefaultActions: true
-        },
-        {
-            type: 'iconStandard',
-            initialWidth: 40,
-            hideLabel: true,
-            hideDefaultActions: true,
-            typeAttributes: {
-                description: { fieldName: 'role' },
-                iconName: { fieldName: 'dynamicIcon' }
-            },
-            cellAttributes: { alignment: 'center' }
-        },
-        {
-            type: 'iconSecond',
-            initialWidth: 40,
-            hideLabel: true,
-            hideDefaultActions: true,
-            typeAttributes: {
-                description: { fieldName: 'role' },
-                iconName: { fieldName: 'dynamicIcon' }
-            },
-            cellAttributes: { alignment: 'center' }
         }
     ];
 
