@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>LogHandler</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>LogHandlers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Attempt Number --></label>
+        <name>Attempt_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Create Date --></label>
+        <name>Create_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ObjectId --></label>
+        <name>ObjectId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object --></label>
+        <name>Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Operation --></label>
+        <name>Operation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request body --></label>
+        <name>Request_body__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request endpoint --></label>
+        <name>Request_endpoint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Response body --></label>
+        <name>Response_body__c</name>
+    </fields>
+    <fields>
+        <label><!-- Response status code --></label>
+        <name>Response_status_code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Success --></label>
+        <name>Success__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Residential_Sales_Letterhead</letterhead>
+    <name>Residential Sales Welcome Email</name>
+    <style>freeForm</style>
+    <subject>Welcome from Ursa Major Solar!</subject>
+    <textOnly>Hey there [contact name merge field],
+Did you know enough sunlight hits the earth in one hour to power the entire world economy for a year?
+Did you know solar energy growth doubled last year?
+Do you know why the electron crossed the road?
+Contact your Ursa Major Solar Residential Sales Team to learn how you can save money on your monthly power bill while saving the planet!</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

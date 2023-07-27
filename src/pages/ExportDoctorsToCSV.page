@@ -1,0 +1,18 @@
+<!--
+ - Created by hubert.bogusz on 14.04.2022.
+ -->
+
+<apex:page id="ExportDoctorsToCSV" controller="DoctorsController" contentType="text/csv;charset=UTF-8#Export.csv" showHeader="false" standardStylesheets="false" >
+    <apex:outputText value="First Name"/><apex:outputText value="{!COMMA}"/>
+    <apex:outputText value="Last Name"/><apex:outputText value="{!COMMA}"/>
+    <apex:outputText value="Email"/><apex:outputText value="{!COMMA}"/>
+    <apex:outputText value="Specialization"/><apex:outputText value="{!COMMA}"/>
+    <apex:outputText value="{!CRLF}"/>
+    <apex:repeat value="{!doctors}" var="doctor">
+        <apex:outputText value="{!doctor.First_Name__c}"/><apex:outputText value="{!COMMA}"/>
+        <apex:outputText value="{!doctor.Name}"/><apex:outputText value="{!COMMA}"/>
+        <apex:outputText value="{!doctor.Email__c}"/><apex:outputText value="{!COMMA}"/>
+        <apex:outputText value="{!doctor.Specialization__c}"/><apex:outputText value="{!COMMA}"/>
+        <apex:outputText value="{!CRLF}"/>
+    </apex:repeat>
+</apex:page>

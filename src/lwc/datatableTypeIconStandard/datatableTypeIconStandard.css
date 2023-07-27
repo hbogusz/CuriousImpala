@@ -1,0 +1,9 @@
+.myClass > .slds-form-element__icon > lightning-button-icon > .slds-button_icon {
+    width: 3rem !important;
+    height: 3rem !important;
+}
+.myClass > .slds-form-element__icon > lightning-button-icon > .slds-button_icon > lightning-primitive-icon > .slds-button__icon {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+}
+

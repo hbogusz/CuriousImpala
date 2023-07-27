@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- Battle Station Construction --></label>
+        <name>Battle_Station_Construction</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Playground Starter --></label>
+        <name>Playground_Starter</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Suggestion Box --></label>
+        <name>Suggestion_Box</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- The Hospital --></label>
+        <name>The_Hospital</name>
+    </customApplications>
+    <customLabels>
+        <label><!-- Action --></label>
+        <name>Action</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address --></label>
+        <name>Address</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All --></label>
+        <name>All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel --></label>
+        <name>Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Clear --></label>
+        <name>Clear</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Clone --></label>
+        <name>Clone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contract Info --></label>
+        <name>Contract_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Country --></label>
+        <name>Country</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Created By --></label>
+        <name>Created_By</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Crop --></label>
+        <name>Crop</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete --></label>
+        <name>Delete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Confirmation --></label>
+        <name>Delete_Confirmation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete_mechanic --></label>
+        <name>Delete_mechanic</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Doctor Details --></label>
+        <name>Doctor_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Doctor List --></label>
+        <name>Doctor_List</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit --></label>
+        <name>Edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Doctor --></label>
+        <name>Edit_Doctor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Hospital --></label>
+        <name>Edit_Hospital</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Photo --></label>
+        <name>Edit_Photo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit_mechanic --></label>
+        <name>Edit_mechanic</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit_workshop --></label>
+        <name>Edit_workshop</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email --></label>
+        <name>Email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Export to CSV --></label>
+        <name>Export_to_CSV</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Export to XLSX --></label>
+        <name>Export_to_XLSX</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- First --></label>
+        <name>First</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- First Name --></label>
+        <name>First_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Full Name --></label>
+        <name>Full_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Get Template --></label>
+        <name>Get_Template</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hospital Contracts --></label>
+        <name>Hospital_Contracts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hospital Details --></label>
+        <name>Hospital_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hospital_Info --></label>
+        <name>Hospital_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hospitals --></label>
+        <name>Hospitals</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Import --></label>
+        <name>Import</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Import Data --></label>
+        <name>Import_Data</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Import Doctors --></label>
+        <name>Import_Doctors</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Import Info --></label>
+        <name>Import_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Last --></label>
+        <name>Last</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Last Modified By --></label>
+        <name>Last_Modified_By</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Last Name --></label>
+        <name>Last_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Name --></label>
+        <name>Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New --></label>
+        <name>New</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New Hospital Contract --></label>
+        <name>New_Hospital_Contract</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New mechanic --></label>
+        <name>New_mechanic</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New_workshop --></label>
+        <name>New_workshop</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Next --></label>
+        <name>Next</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No --></label>
+        <name>No</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- None --></label>
+        <name>None</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Operation successful --></label>
+        <name>Operation_successful</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Phone --></label>
+        <name>Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Previous --></label>
+        <name>Previous</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Process --></label>
+        <name>Process</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Records per page --></label>
+        <name>Records_per_page</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Restore --></label>
+        <name>Restore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Reverse --></label>
+        <name>Reverse</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save --></label>
+        <name>Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save &amp; New --></label>
+        <name>Save_New</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search --></label>
+        <name>Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search Doctor --></label>
+        <name>Search_Doctor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search Hospital --></label>
+        <name>Search_Hospital</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search Mechanics --></label>
+        <name>Search_Mechanics</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search results --></label>
+        <name>Search_results</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search_workshop --></label>
+        <name>Search_workshop</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select --></label>
+        <name>Select</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- To Import --></label>
+        <name>To_Import</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View --></label>
+        <name>View</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Yes --></label>
+        <name>Yes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Your new avatar --></label>
+        <name>Your_new_avatar</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- tt_BaseURL --></label>
+        <name>trlhdtips__tt_BaseURL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- tt_EnterPackageId --></label>
+        <name>trlhdtips__tt_EnterPackageId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- tt_InvalidPackageId --></label>
+        <name>trlhdtips__tt_InvalidPackageId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- tt_ResetPasswordFail --></label>
+        <name>trlhdtips__tt_ResetPasswordFail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- tt_ResetPasswordSuccess --></label>
+        <name>trlhdtips__tt_ResetPasswordSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- tt_ResetPasswordTitle --></label>
+        <name>trlhdtips__tt_ResetPasswordTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- tt_ResetPasswordWarning --></label>
+        <name>trlhdtips__tt_ResetPasswordWarning</name>
+    </customLabels>
+    <customTabs>
+        <label><!-- Get Your Login Credentials --></label>
+        <name>Get_Your_Login_Credentials</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Import Doctors --></label>
+        <name>Import_Doctors</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Install a Package --></label>
+        <name>Install_a_Package</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Search Doctor --></label>
+        <name>Search_Doctor</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Search Mechanic --></label>
+        <name>Search_Mechanic</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Search Workshop --></label>
+        <name>Search_Workshop</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Welcome --></label>
+        <name>Welcome</name>
+    </customTabs>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Automated_Field_Updates</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>accountNotAdded</name>
+                </fields>
+                <name>Account_Not_Added_Msg</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>Bank_Account_Type</name>
+                </fields>
+                <fields>
+                    <name>Last_Name_on_Account</name>
+                </fields>
+                <name>Bank_Account_Record</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>AccountFoundMsg</name>
+                </fields>
+                <name>Found_Bank_Account</name>
+            </screens>
+        </flows>
+        <fullName>Bank_Account_Records</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Fully_Operational_Battle_Station</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>Upload_File</name>
+                </fields>
+                <name>Component_Screen</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>Company_Name</name>
+                </fields>
+                <fields>
+                    <name>Last_Name</name>
+                </fields>
+                <name>Lead_Screen</name>
+            </screens>
+        </flows>
+        <fullName>New_Lead</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <name>New</name>
+            </choices>
+            <choices>
+                <name>Old</name>
+            </choices>
+            <screens>
+                <fields>
+                    <name>Engine_Picklist</name>
+                </fields>
+                <fields>
+                    <name>Lead_Source</name>
+                </fields>
+                <name>Show_Picklist</name>
+            </screens>
+        </flows>
+        <fullName>Show_picklist</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Update_Status</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <name>S_149a89f6_e93f_4402_b3c5_24148bee75c0</name>
+            </choices>
+            <choices>
+                <name>S_3792e0ac_4617_447c_b1de_9c5075f6b9d1</name>
+            </choices>
+            <choices>
+                <name>S_895a92c9_a675_4047_bd25_4b67d875a37b</name>
+            </choices>
+            <choices>
+                <name>S_a0e9d086_3411_4d8f_950d_f2758a33fc68</name>
+            </choices>
+            <choices>
+                <name>S_f6dcd3bd_2efc_4cdd_a3d5_4fb54e458aac</name>
+            </choices>
+            <screens>
+                <fields>
+                    <name>S_55cf98c1_dc1a_4104_b385_89dab3632c94</name>
+                </fields>
+                <fields>
+                    <name>S_62185e3d_591b_4ade_9910_383fb5ff11cf</name>
+                </fields>
+                <name>surveyQuestionPage</name>
+            </screens>
+            <textTemplates>
+                <name>thankYouDescriptionTextTemplate</name>
+            </textTemplates>
+            <textTemplates>
+                <name>thankYouLabelTextTemplate</name>
+            </textTemplates>
+        </flows>
+        <fullName>customer_satisfaction</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>S_50a1d272_b234_4f92_a8fe_fa15dc797af4</name>
+                </fields>
+                <fields>
+                    <name>S_8b93e61a_35a5_435c_9c3d_30831d2252d6</name>
+                </fields>
+                <name>surveyQuestionPage</name>
+            </screens>
+            <textTemplates>
+                <name>thankYouDescriptionTextTemplate</name>
+            </textTemplates>
+            <textTemplates>
+                <name>thankYouLabelTextTemplate</name>
+            </textTemplates>
+        </flows>
+        <fullName>net_promoter_score</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>order_event_flow</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>first_field_question</name>
+                    <validationRule/>
+                </fields>
+                <fields>
+                    <name>second_field_question</name>
+                </fields>
+                <name>First_question</name>
+            </screens>
+        </flows>
+        <fullName>screen_test_flow</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>test_opp</fullName>
+    </flowDefinitions>
+    <quickActions>
+        <label><!-- LogACall --></label>
+        <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewAccount --></label>
+        <name>NewAccount</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewCase --></label>
+        <name>NewCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewContact --></label>
+        <name>NewContact</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewEvent --></label>
+        <name>NewEvent</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewGroup --></label>
+        <name>NewGroup</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewLead --></label>
+        <name>NewLead</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewNote --></label>
+        <name>NewNote</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewOpportunity --></label>
+        <name>NewOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewTask --></label>
+        <name>NewTask</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Offer --></label>
+        <name>New_Offer</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Prospect --></label>
+        <name>New_Prospect</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Suggestion --></label>
+        <name>New_Suggestion</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <reportTypes>
+        <description><!-- Screen Flows --></description>
+        <label><!-- Screen Flows --></label>
+        <name>screen_flows_prebuilt_crt</name>
+        <sections>
+            <label><!-- Flow Interview Log Entries --></label>
+            <name>Flow Interview Log Entries</name>
+        </sections>
+        <sections>
+            <label><!-- Flow Interview Logs --></label>
+            <name>Flow Interview Logs</name>
+        </sections>
+    </reportTypes>
+</Translations>

@@ -1,0 +1,12 @@
+<template>
+    <div onmouseover={showPopover} onmouseout={hidePopover}>
+        <lightning-icon
+                icon-name={iconName}
+                alternative-text={description}
+                size="small"
+        ></lightning-icon>
+        <div class={className} role="tooltip" id="help">
+            <div class="slds-popover__body slds-p-around_xx-small">{description}</div>
+        </div>
+    </div>
+</template>

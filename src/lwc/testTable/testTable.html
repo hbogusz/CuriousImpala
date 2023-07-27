@@ -1,0 +1,24 @@
+<template>
+    <article class="slds-card slds-card_boundary ">
+        <lightning-card>
+            <h3 slot="title" class="slds-grid">
+                <span class="slds-align_absolute-center">
+                    <lightning-icon icon-name="standard:contact_list" size="small"></lightning-icon>
+                </span>
+                <span class="slds-m-left_small">
+                    <p>Contact Roles</p>
+                </span>
+            </h3>
+
+            <c-custom-datatable
+                    key-field="id"
+                    columns={columns}
+                    data={data}
+                    hide-checkbox-column
+                    resize-column-disabled
+                    class="slds-is-relative myTable"
+                    onload={changeClass}
+            ></c-custom-datatable>
+        </lightning-card>
+    </article>
+</template>

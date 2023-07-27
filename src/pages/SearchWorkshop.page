@@ -1,0 +1,415 @@
+<!--
+ - Created by hubert.bogusz on 08.05.2022.
+ -->
+
+<apex:page id="SearchWorkshop" lightningStyleSheets="true" controller="SearchWorkshopController" docType="html-5.0">
+
+    <style type="text/css">
+        .deletePopup{
+        background-color: white;
+        border-radius:3px;
+        z-index: 99999;
+        left: 50%;
+        padding:10px;
+        position: absolute;
+        width: 250px;
+        margin-left: -150px;
+        top:200px;
+    }
+        .editPopup{
+        background-color: white;
+        border-radius:3px;
+        z-index: 99999;
+        left: 50%;
+        padding:10px;
+        position: absolute;
+        width: 300px;
+        margin-left: -150px;
+        top:10%;
+    }
+    .popupBackground{
+        background-color:black;
+        opacity: 0.20;
+        position: absolute;
+        width: 100%;
+        height: 200%;
+        top: 0;
+        left: 0;
+        z-index: 99992;
+    }
+    .selectCountry{
+        width:177px;
+        height:32px;
+    }
+
+    </style>
+    <apex:slds />
+    <div class="slds-scope">
+        <div class="slds-page-header">
+            <div class="slds-grid slds-grid_align-space">
+                <div class="slds-col slds-size_1-of-5">
+                    <div class="slds-page-header__row">
+                        <div class="slds-page-header__col-title">
+                            <div class="slds-media">
+                                <div class="slds-media__body">
+                                    <div class="slds-page-header__name">
+                                        <div class="slds-page-header__name-title">
+                                            <h1>
+                                                <span class="slds-page-header__title slds-truncate"
+                                                      title="{! $Label.Search_workshop}">{! $Label.Search_workshop}</span>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_3-of-5">
+                <apex:actionStatus id="pageStatus">
+                    <apex:facet name="start">
+                        <div class="demo-only" style="height:32px;position:relative">
+                            <div class="slds-spinner_container " style="max-height: 32px; background-color: rgb(243, 243, 243);">
+                                <div role="status" class="slds-spinner slds-spinner--x-small slds-spinner_brand">
+                                    <span class="slds-assistive-text">Loading</span>
+                                    <div class="slds-spinner__dot-a"></div>
+                                    <div class="slds-spinner__dot-b"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:facet>
+                </apex:actionStatus>
+                </div>
+                <div class="slds-col slds-size_1-of-5">
+                    <apex:form >
+                        <apex:commandButton value="{! $Label.New }" action="{! showNewModal }"
+                                            styleClass="slds-button slds-button_neutral"
+                                            status="pageStatus" id="newBtn" reRender="newContainer"/>
+                    </apex:form>
+                </div>
+
+            </div>
+            <apex:actionRegion >
+                <apex:form id="mainForm">
+                    <apex:actionFunction name="refreshPageSize" action="{!refreshPageSize}"
+                                         reRender="workshopsTable"/>
+                    <apex:actionFunction name="checkFields" action="{!checkIfFieldsEmpty}" reRender="mainForm"
+                    />
+                    <div class="slds-grid slds-grid_align-space">
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">
+                                        {! $Label.Name }</label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText value="{! searchWorkshop.Name}" styleClass="slds-input"
+                                                    onChange="checkFields()"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">
+                                        {! $Label.Country }</label>
+                                <div class="slds-form-element__control">
+                                    <apex:selectList value="{! searchWorkshop.Country__c}" size="1"
+                                                     styleClass="slds-select selectCountry" onChange="checkFields()"
+                                                     style="width:177px; height: 32px">
+                                        <apex:selectOptions value="{! countryOptions }"/>
+                                    </apex:selectList>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-grid_align-center">
+                        <div class="slds-col">
+                            <apex:commandButton value="{! $Label.Search }" action="{! searchWorkshops }"
+                                                styleClass="slds-button slds-button_brand"
+                                                reRender="mainForm,notify"
+                                                status="pageStatus"/>
+                            <apex:commandButton value="{! $Label.Clear }" action="{! clearFields }"
+                                                styleClass="slds-button slds-button_neutral" status="pageStatus" reRender="mainForm,notify"
+                                                disabled="{! isDisabled }"/>
+                        </div>
+                    </div>
+                    <apex:outputPanel id="workshopsTable">
+                        <apex:dataTable value="{!workshopsGroup}" var="record"
+                                        styleClass="slds-table slds-table--bordered slds-table--striped slds-m-vertical--large slds-table--cell-buffer"
+                                        rendered="{! workshops.size != 0}">
+                            <apex:column headerValue="{! $Label.Action }" styleClass="slds-size_1-of-8">
+                                <apex:commandButton value="{! $Label.Edit }" action="{! showEditModal }"
+                                                    styleClass="slds-button slds-button_neutral slds-button--icon-x-small"
+                                                    status="pageStatus" id="editBtn" reRender="editContainer">
+                                    <apex:param name="workshopId" value="{! record.External_Id__c }" assignTo="{! workshopId }"/>
+                                </apex:commandButton>
+                                <apex:commandButton value="{! $Label.Delete }" action="{! showDeleteModal }"
+                                                    styleClass="slds-button slds-button_neutral slds-button--icon-x-small slds-p-horizontal_large"
+                                                    status="pageStatus" id="deleteBtn" reRender="deleteContainer">
+                                    <apex:param name="workshopId" value="{! record.External_Id__c }" assignTo="{! workshopId }"/>
+                                </apex:commandButton>
+                            </apex:column>
+                            <apex:column headerValue="{! $Label.Name }" value="{!record.Name}"
+                                         styleClass="slds-col slds-size--1-of-8"/>
+                            <apex:column headerValue="{! $Label.Country }" value="{!record.Country__c}"/>
+                            <apex:column headerValue="{! $Label.Email }" value="{!record.Email__c}"/>
+                            <apex:column headerValue="{! $Label.Phone }" value="{!record.Phone__c}"/>
+                        </apex:dataTable>
+                        <apex:outputPanel rendered="{! workshops.size != 0}">
+                            <div class="slds-grid slds-grid--align-spread">
+                                <div class="slds-col">
+                                    <apex:commandButton reRender="workshopsTable"
+                                                        value="{! $Label.First }" action="{! first }"
+                                                        disabled="{!!hasPrevious}"
+                                                        status="pageStatus"
+                                                        styleClass="btn slds-button slds-button_neutral slds-button--icon-x-small slds-p-horizontal_large"/>
+                                    <apex:commandButton reRender="workshopsTable"
+                                                        value="{! $Label.Previous }"
+                                                        action="{! previous }"
+                                                        disabled="{!!hasPrevious }"
+                                                        status="pageStatus"
+                                                        styleClass="btn slds-button slds-button_neutral slds-button--icon-x-small slds-p-horizontal--x-large"/>
+                                    <apex:commandButton reRender="workshopsTable"
+                                                        value="{! $Label.Next }" action="{! next }"
+                                                        disabled="{!!hasNext}"
+                                                        status="pageStatus"
+                                                        styleClass="slds-button slds-button_neutral slds-button--icon-x-small"/>
+                                    <apex:commandButton reRender="workshopsTable"
+                                                        value="{! $Label.Last }" action="{! last }"
+                                                        disabled="{!!hasNext}"
+                                                        status="pageStatus"
+                                                        styleClass="slds-button slds-button_neutral slds-button--icon-x-small"/>
+                                </div>
+                                <div class="slds-col">
+                                    <div class="slds-form-element slds-size_x-small">
+                                        <label class="slds-form-element__label">
+                                                {! $Label.Records_per_page }</label>
+                                        <apex:selectList value="{! pageSize }" size="1" onChange="refreshPageSize()"
+                                                         styleClass="slds-select slds-size_1-of-5">
+                                            <apex:selectOption itemValue="5" itemLabel="5"/>
+                                            <apex:selectOption itemValue="10" itemLabel="10"/>
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:form>
+            </apex:actionRegion>
+        </div>
+    </div>
+
+    <apex:outputPanel id="newContainer">
+        <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{! isNewClicked }">
+        </apex:outputPanel>
+        <apex:outputPanel styleClass="editPopup" layout="block" rendered="{! isNewClicked }">
+            <div id="modal" class="slds-scope">
+                <apex:form id="modalForm">
+                    <div class="slds-modal__header">
+                        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{! $Label.New_workshop }</h1>
+                    </div>
+                    <apex:outputPanel id="fields">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="input-LastName">
+                                    <abbr class="slds">* </abbr>{! $Label.Name }</label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText value="{! newWorkshop.Name}" styleClass="slds-input"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-Email">
+                                    {! $Label.Email }</label>
+                            <div class="slds-form-element__control">
+                                <apex:inputText value="{! newWorkshop.Email__c}" styleClass="slds-input"/>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-Email">
+                                    {! $Label.Phone }</label>
+                            <div class="slds-form-element__control">
+                                <apex:inputText value="{! newWorkshop.Phone__c}" styleClass="slds-input"/>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-Country">
+                                    {! $Label.Country }</label>
+                            <div class="slds-form-element__control">
+                                <apex:selectList value="{! newWorkshop.Country__c}" size="1"
+                                                 styleClass="slds-select" onChange="checkFields()">
+                                    <apex:selectOptions value="{! countryOptions }"/>
+                                </apex:selectList>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <div align="center">
+                        <apex:commandButton value="{! $Label.Save }" action="{! create }"
+                                            styleClass="slds-button slds-button_brand slds-m-around--small"
+                                            reRender="newContainer,mainForm,notify"/>
+                        <apex:commandButton value="{! $Label.Cancel }" action="{! hideNewModal }"
+                                            styleClass="slds-button slds-button_neutral slds-m-around--small"
+                                            reRender="newContainer,notify"/>
+                    </div>
+                </apex:form>
+            </div>
+        </apex:outputPanel>
+    </apex:outputPanel>
+
+
+    <apex:outputPanel id="editContainer">
+        <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{! isEditClicked }">
+        </apex:outputPanel>
+        <apex:outputPanel styleClass="editPopup" layout="block" rendered="{! isEditClicked }">
+            <div id="editModal">
+                <apex:form id="editForm">
+                    <div class="slds-modal__header">
+                        <h1 id="modal-heading-01"
+                            class="slds-modal__title slds-hyphenate">{! $Label.Edit_workshop }</h1>
+                    </div>
+                    <apex:outputPanel id="fieldsEdit">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-FirstName">
+                                    {! $Label.Name }</label>
+                            <div class="slds-form-element__control">
+                                <apex:inputText value="{! workshopToEdit.Name}" styleClass="slds-input"/>
+                            </div>
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="input-email">
+                                    <abbr class="slds">* </abbr>{! $Label.Email }</label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText value="{! workshopToEdit.Email__c}" styleClass="slds-input"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-phone">
+                                    {! $Label.Phone }</label>
+                            <div class="slds-form-element__control">
+                                <apex:inputText value="{! workshopToEdit.Phone__c}" styleClass="slds-input"/>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-Country">
+                                    {! $Label.Country }</label>
+                            <div class="slds-form-element__control">
+                                <apex:selectList value="{! workshopToEdit.Country__c}" size="1"
+                                                 styleClass="slds-select">
+                                    <apex:selectOptions value="{! countryOptions }"/>
+                                </apex:selectList>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <div align="center">
+                        <apex:commandButton value="{! $Label.Save }" action="{! edit }"
+                                            styleClass="slds-button slds-button_brand slds-m-around--small"
+                                            reRender="mainForm,editContainer, notify"/>
+                        <apex:commandButton value="{! $Label.Cancel }" action="{! hideEditModal }"
+                                            styleClass="slds-button slds-button_neutral slds-m-around--small"
+                                            reRender="editContainer,notify"/>
+                    </div>
+                </apex:form>
+            </div>
+        </apex:outputPanel>
+    </apex:outputPanel>
+
+    <apex:outputPanel id="deleteContainer">
+        <div id="deleteBox" class="slds-scope" align="center">
+            <apex:form id="deleteForm">
+                <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{! isDeleteClicked }">
+                </apex:outputPanel>
+                <apex:outputPanel styleClass="deletePopup" layout="block" rendered="{! isDeleteClicked }">
+                    <apex:outputText value="{! $Label.Delete_Confirmation }" id="confirmation"/>
+                    <div align="center">
+                        <apex:commandButton value="{! $Label.Yes }" action="{! deleteAction }"
+                                            styleClass="slds-button slds-button_brand slds-m-around--small"
+                                            reRender="mainForm, deleteContainer,notify"/>
+                        <apex:commandButton value="{! $Label.No }" action="{! hideDeleteModal }"
+                                            styleClass="slds-button slds-button_brand slds-m-around--small"
+                                            reRender="deleteForm, notify"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:form>
+        </div>
+    </apex:outputPanel>
+
+    <apex:outputPanel id="notify" styleClass="slds-notify_container">
+        <apex:form >
+            <div id="successNotify" class="slds-notify_container slds-is-absolute {! successClass }">
+                <div class="slds-notify slds-notify_toast slds-theme_success" role="alert">
+                    <span class="slds-assistive-text"></span>
+                    <span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top">
+      <svg class="slds-icon slds-icon_small" aria-hidden="true">
+           <use xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#success')}"></use>
+      </svg>
+    </span>
+                    <div class="slds-notify__content">
+                        <h2 class="slds-text-heading_small ">{! $Label.Operation_successful }</h2>
+                    </div>
+                    <div class="slds-notify__close slds-m-around--small">
+                        <apex:commandLink action="{! hideSuccessToast}"
+                                          styleClass="slds-button slds-button_icon slds-button_icon-inverse"
+                                          reRender="notify">
+                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                <use xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#close')}"></use>
+                            </svg>
+                        </apex:commandLink>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorNotify" class="slds-notify_container slds-is-absolute {! errorClass }"
+                 style=" z-index: 999993;">
+                <div class="slds-notify slds-notify_toast slds-theme_error" role="alert">
+                    <span class="slds-assistive-text"></span>
+                    <span class="slds-icon_container slds-icon-utility-error slds-m-right_small slds-no-flex slds-align-top">
+      <svg class="slds-icon slds-icon_small" aria-hidden="true">
+           <use xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#error')}"></use>
+      </svg>
+    </span>
+                    <div class="slds-notify__content">
+                        <h2 class="slds-text-heading_small ">{! errorContent }</h2>
+                    </div>
+                    <div class="slds-notify__close slds-m-around--small">
+                        <apex:commandLink action="{! hideErrorToast }"
+                                          styleClass="slds-button slds-button_icon slds-button_icon-inverse"
+                                          reRender="notify">
+                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                <use xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#close')}"></use>
+                            </svg>
+                        </apex:commandLink>
+                    </div>
+                </div>
+            </div>
+
+            <div id="warningNotify" class="slds-notify_container slds-is-absolute {! warningClass }">
+                <div class="slds-notify slds-notify_toast slds-theme_warning" role="alert">
+                    <span class="slds-assistive-text"></span>
+                    <span class="slds-icon_container slds-icon-utility-warning slds-m-right_small slds-no-flex slds-align-top">
+      <svg class="slds-icon slds-icon_small" aria-hidden="true">
+           <use xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#warning')}"></use>
+      </svg>
+    </span>
+                    <div class="slds-notify__content">
+                        <h2 class="slds-text-heading_small ">{! warningContent }</h2>
+                    </div>
+                    <div class="slds-notify__close slds-m-around--small">
+                        <apex:commandLink action="{! hideWarningToast}"
+                                          styleClass="slds-button slds-button_icon slds-button_icon-inverse"
+                                          reRender="notify">
+                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                <use xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#close')}"></use>
+                            </svg>
+                        </apex:commandLink>
+                    </div>
+                </div>
+            </div>
+
+        </apex:form>
+    </apex:outputPanel>
+
+</apex:page>

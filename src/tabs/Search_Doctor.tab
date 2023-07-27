@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <icon>0157R00000717YX</icon>
+    <label>Search Doctor</label>
+    <motif>Custom107: TV Widescreen</motif>
+    <page>SearchDoctors</page>
+</CustomTab>

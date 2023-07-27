@@ -1,0 +1,94 @@
+<!--
+ - Created by hubert.bogusz on 12.04.2022.
+ -->
+
+<apex:page id="HospitalDetails" standardController="Hospital__c" extensions="HospitalDetailController">
+    <apex:stylesheet value="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+    <apex:includescript value="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js" />
+    <apex:form >
+        <apex:pageMessages id="showMessage"/>
+        <apex:pageBlock title="{! $Label.Hospital_Details }">
+            <apex:pageBlockSection id="detailList" columns="2" title="{!$Label.Hospital_Info}">
+                <apex:outputField value="{! hospitalWrapper.hospital.Name }"/>
+                <apex:outputField value="{! hospitalWrapper.hospital.Email__c }"/>
+                <apex:outputField value="{! hospitalWrapper.hospital.Opening_Date__c }"/>
+                <apex:outputField value="{! hospitalWrapper.hospital.Phone__c }"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{! $Label.Created_By } "/>
+                    <apex:outputPanel >
+                        <apex:outputField value="{!hospitalWrapper.hospital.CreatedBy.Name} "/>
+                        <apex:outputText value=" "/>
+                        <apex:outputField value="{!hospitalWrapper.hospital.CreatedBy.CreatedDate}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{! $Label.Last_Modified_By }"/>
+                    <apex:outputPanel >
+                        <apex:outputField value="{!hospitalWrapper.hospital.LastModifiedBy.Name} "/>
+                        <apex:outputText value=" "/>
+                        <apex:outputField value="{!hospitalWrapper.hospital.LastModifiedBy.CreatedDate}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="addressInfo" title="{! $Label.Address}" columns="2">
+            </apex:pageBlockSection>
+            <div id="addressDiv" style="float: left; width: 60%">
+                    <apex:pageBlockSection columns="2">
+                    <apex:outputField value="{! hospitalWrapper.hospital.City__c }"/>
+                    <apex:outputField value="{! hospitalWrapper.hospital.Postal_Code__c }"/>
+                    <apex:outputField value="{! hospitalWrapper.hospital.Street__c }"/>
+                    <apex:outputField value="{! hospitalWrapper.hospital.Country__c }"/>
+            </apex:pageBlockSection>
+            </div>
+                <div id="map" style="width: 600px; height: 400px; float: right"></div>
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton value="{! $Label.Edit }" action="{! URLFOR($Action.Hospital__c.Edit, hospitalWrapper.hospital.Id) }"/>
+                <apex:commandButton value="{! $Label.Delete }" action="{! URLFOR($Action.Hospital__c.Delete, hospitalWrapper.hospital.Id) }"/>
+                <apex:commandButton value="{! $Label.Clone }" action="{! URLFOR($Action.Hospital__c.Clone, hospitalWrapper.hospital.Id) }"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:pageBlock title="{! $Label.Hospital_Contracts }">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="{! $Label.New_Hospital_Contract }"
+                                    action="{! URLFOR($Action.Hospital_Contract__c.New, contract.Id) }"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{! hospitalWrapper.hospital.Hospital_Contracts__r }" var="contract">
+                    <apex:column headerValue="{! $Label.Action }">
+                        <apex:outputLink value="/{!contract.id}" target="_blank">
+                            View
+                        </apex:outputLink>
+                        <apex:outputLink value="{! URLFOR($Action.Hospital_Contract__c.Edit, contract.Id) }">
+                            Edit
+                        </apex:outputLink>
+                    </apex:column>
+                    <apex:column value="{! contract.Doctor__r.Name }"/>
+                    <apex:column value="{! contract.Doctor__r.First_Name__c }"/>
+                    <apex:column value="{! contract.Start_Date__c }"/>
+                    <apex:column value="{! contract.Expiration_Date__c }"/>
+                    <apex:column value="{! contract.Active__c }"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <script>
+    var city = '{!hospitalWrapper.hospital.City__c}';
+    window.onload = hideMap();
+
+      function hideMap(){
+        if( city != ''){
+    var map = L.map('map').setView([{! hospitalWrapper.latitude}, {! hospitalWrapper.longitude}], 12);
+    mapLink = '&lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;';
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&amp;copy; ' + mapLink + ' Contributors', maxZoom: 18,}).addTo(map);
+    L.marker([{! hospitalWrapper.latitude}, {! hospitalWrapper.longitude}],{color : 'red',fillColor : '#f03', fillOpacity: 0.5,radius :700}).addTo(map)
+    .bindPopup('{! hospitalWrapper.hospital.Name}')
+    .openPopup();
+    window.onload = hideMap();
+          } else {
+              document.getElementById('map').remove();
+              document.getElementById('addressDiv').style.width = '100%';
+          }
+    }
+    </script>
+<!--    || {!hospitalWrapper.hospital.Country__c } === '' || {!hospitalWrapper.hospital.Postal_Code__c } === '' || {!hospitalWrapper.hospital.City__c } === ''-->
+</apex:page>

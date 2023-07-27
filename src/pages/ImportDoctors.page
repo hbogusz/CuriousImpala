@@ -1,0 +1,71 @@
+<!--
+ - Created by hubert.bogusz on 15.04.2022.
+ -->
+
+<apex:page id="ImportDoctors" controller="ImportController">
+    <apex:form >
+        <style>
+          .loader{
+             border: 2px solid #f3f3f3; /* Light grey */
+             border-top: 2px solid #d95d2e; /* Blue */
+             border-radius: 50%;
+             width: 20px;
+             height: 20px;
+             animation: spin 1s linear infinite;
+             margin-left: auto;
+             margin-right: auto;
+           }
+
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+           }
+       </style>
+
+        <apex:pageMessages />
+        <apex:pageBlock title="{! $Label.Import_Doctors }" id="import_doctors">
+            <apex:pageBlockSection columns="3">
+                <apex:inputFile value="{!csvFileBody}" filename="{!csvAsString}" accept=".csv" contentType="text/csv"/>
+                <apex:actionRegion >
+                    <apex:actionStatus id="pageStatus">
+                        <apex:facet name="start">
+                            <apex:outputPanel >
+                                <div class="loader"></div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                    </apex:actionStatus>
+                </apex:actionRegion>
+                <apex:outputPanel id="buttons" style="float:right;">
+                    <apex:commandButton value="{! $Label.Get_Template }" action="{!getTemplate}" />
+                    <apex:commandButton value="{! $Label.Process }" action="{!importCSVFile}"
+                                        style="margin-left: 20px;" />
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock id="doctors_from_file" rendered="{!doctorsFromFile.size != 0}">
+            <apex:actionRegion >
+            <apex:pageBlockTable value="{! doctorsFromFile }" var="doctorModel">
+                <apex:column headerValue="{! $Label.To_Import }">
+                    <apex:inputCheckbox value="{! doctorModel.isSelected }"/>
+                </apex:column>
+                <apex:column value="{! doctorModel.doctor.First_name__c }"/>
+                <apex:column value="{! doctorModel.doctor.Name }"/>
+                <apex:column value="{! doctorModel.doctor.Email__c }"/>
+                <apex:column value="{! doctorModel.doctor.Specialization__c }"/>
+                <apex:column headerValue="{! $Label.Import_Info }" rendered="{! imported }">
+                    <apex:outputLink disabled="{! doctorModel.importResult != 'Success' }"
+                                     value="/{!doctorModel.doctor.id}"> {! doctorModel.importResult } </apex:outputLink>
+                </apex:column>
+            </apex:pageBlockTable>
+                <apex:commandButton value="{! $Label.All }" action="{!checkAll}" reRender="doctors_from_file" status="pageStatus"
+                                    />
+                <apex:commandButton value="{! $Label.Reverse }" action="{!checkReverse}" reRender="doctors_from_file" status="pageStatus"
+                                     style="margin: 0 5px;"/>
+                <apex:commandButton value="{! $Label.None }" action="{!checkNone}" reRender="doctors_from_file" status="pageStatus"
+                                    />
+                <apex:commandButton value="{! $Label.Import }" action="{!importSelected}" reRender="doctors_from_file" status="pageStatus"
+                                    style="float: right;" disabled="{! imported}"/>
+            </apex:actionRegion>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

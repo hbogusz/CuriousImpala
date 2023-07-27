@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>hubert.bogusz@britenet.com.pl</contactEmail>
+    <label>Hospitals</label>
+    <oauthConfig>
+        <callbackUrl>https://curious-impala-hrscj9-dev-ed.my.salesforce.com</callbackUrl>
+        <consumerKey>3MVG98Gq2O8Po4ZkfY7GKsm1Jm2xwIY.sA.LASNOJGtXV9iPXZF2_fRwW30EVwwWUr7AQTYmbVKovk1NHq.2f</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>true</isSecretRequiredForRefreshToken>
+        <scopes>Api</scopes>
+        <scopes>Full</scopes>
+        <scopes>Wave</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

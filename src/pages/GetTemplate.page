@@ -1,0 +1,8 @@
+<!--
+ - Created by hubert.bogusz on 19.04.2022.
+ -->
+
+<apex:page id="GetTemplate" controller="ImportController" cache="true" contentType="text/csv#Template.csv"
+           language="en-US">First Name, Last Name, Email, Specialization
+Jan, Nowak, jannowak@hospital.pl, Dentist
+</apex:page>

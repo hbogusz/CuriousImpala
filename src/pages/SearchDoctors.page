@@ -1,0 +1,96 @@
+<!--
+ - Created by hubert.bogusz on 10.04.2022.
+ -->
+
+<apex:page id="SearchDoctors" controller="DoctorsController">
+    <apex:form id="idForm">
+        <apex:actionFunction name="refreshPageSize" action="{!refreshPageSize}"
+                             reRender="doctor_list"/>
+        <apex:actionFunction name="checkDisableClear" action="{!checkDisableClear}"
+                             reRender="clearButtonPanel" />
+        <apex:pageBlock title="{! $Label.Search_Doctor }" id="searchDoctors">
+            <apex:pageMessages id="showMessage"/>
+            <apex:pageBlockSection columns="2">
+                <apex:inputField value="{!doctor.First_Name__c}" onChange="checkDisableClear()" id="firstName"/>
+                <apex:inputField value="{!doctor.Email__c}" onChange="checkDisableClear()"/>
+                <apex:inputField value="{!doctor.Name}" required="true" onChange="checkDisableClear()"/>
+                <apex:inputField value="{!doctor.Specialization__c}"
+                                 style="width: 177px; height: 20px; text-align: center;"
+                                 onChange="checkDisableClear()"/>
+            </apex:pageBlockSection>
+            <div id="mainButtons" style="display: flex; align-items: center; justify-content: center;">
+                <apex:commandButton action="{!searchDoctors}" value="{! $Label.Search }"
+                                    reRender="idForm" status="pageStatus"/>
+                <apex:outputPanel id="clearButtonPanel">
+                    <apex:commandButton action="{!clearFields}" value="{! $Label.Clear }" id="clearButton"
+                                        reRender="idForm"
+                                        disabled="{! disableClear }"
+                                        status="pageStatus"/>
+                </apex:outputPanel>
+                <apex:commandButton action="{!exportResultToCSV}" value="{! $Label.Export_to_CSV }"
+                                    disabled="{! doctorsList.size == 0  }"/>
+                <apex:commandButton action="{!exportResultToXLSX}" value="{! $Label.Export_to_XLSX }"
+                disabled="{! doctorsList.size == 0  }"/>
+            </div>
+        </apex:pageBlock>
+        <apex:pageBlock title="{! $Label.Doctor_List }"
+                id="doctor_list"
+                rendered="{!doctorsList.size != 0}">
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!doctorsList}" var="doctor">
+                    <apex:column >
+                        <apex:outputLink value="/{!doctor.id}" target="_blank">
+                                {! $Label.View }
+                        </apex:outputLink>
+                        <apex:outputLink value="{! URLFOR($Action.Doctor__c.Edit, doctor.Id) }">
+                                {! $Label.Edit }
+                        </apex:outputLink>
+                    </apex:column>
+                    <apex:column value="{! doctor.First_Name__c }"/>
+                    <apex:column value="{! doctor.Name }"/>
+                    <apex:column value="{! doctor.Email__c }"/>
+                    <apex:column value="{! doctor.Phone__c }"/>
+                    <apex:column value="{! doctor.Specialization__c }"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <table style="width: 100%">
+                <tr>
+                    <td align="left">
+                        <apex:commandButton reRender="doctor_list"
+                                value="{! $Label.First }" action="{!setController.first}"
+                                disabled="{!!setController.hasPrevious}"
+                                status="pageStatus"/>
+                        <apex:commandButton reRender="doctor_list"
+                                value="{! $Label.Previous }"
+                                action="{!setController.previous}"
+                                disabled="{!!setController.hasPrevious}"
+                                status="pageStatus"/>
+                        <apex:commandButton reRender="doctor_list"
+                                value="{! $Label.Next }" action="{!setController.next}"
+                                disabled="{!!setController.hasNext}"
+                                status="pageStatus"/>
+                        <apex:commandButton reRender="doctor_list"
+                                value="{! $Label.Last }" action="{!setController.last}"
+                                disabled="{!!setController.hasNext}"
+                                status="pageStatus"/>
+                    </td>
+                    <td align="right">
+                    {! $Label.Records_per_page}
+                        <apex:selectList value="{! pageSize }" size="1" onChange="refreshPageSize()">
+                            <apex:selectOption itemValue="5" itemLabel="5"/>
+                            <apex:selectOption itemValue="10" itemLabel="10"/>
+                        </apex:selectList>
+                    </td>
+                </tr>
+            </table>
+        </apex:pageBlock>
+        <apex:actionStatus id="pageStatus">
+            <apex:facet name="start">
+                <apex:outputPanel >
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" width="50"
+                         height="50" style="display: block; margin-left: auto; margin-right: auto;"/>
+                </apex:outputPanel>
+            </apex:facet>
+        </apex:actionStatus>
+    </apex:form>
+</apex:page>

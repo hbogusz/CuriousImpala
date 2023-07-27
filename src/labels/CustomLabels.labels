@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Action</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Action</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>Address</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Address</shortDescription>
+        <value>Address</value>
+    </labels>
+    <labels>
+        <fullName>All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Clear</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Clear</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
+        <fullName>Clone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Clone</shortDescription>
+        <value>Clone</value>
+    </labels>
+    <labels>
+        <fullName>Contract_Info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contract Info</shortDescription>
+        <value>Contract Info</value>
+    </labels>
+    <labels>
+        <fullName>Country</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Country</shortDescription>
+        <value>Country</value>
+    </labels>
+    <labels>
+        <fullName>Created_By</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Created By</shortDescription>
+        <value>Created By</value>
+    </labels>
+    <labels>
+        <fullName>Crop</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Crop</shortDescription>
+        <value>Crop</value>
+    </labels>
+    <labels>
+        <fullName>Delete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Delete_Confirmation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Confirmation</shortDescription>
+        <value>Are you sure to delete this mechanic?</value>
+    </labels>
+    <labels>
+        <fullName>Delete_mechanic</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete_mechanic</shortDescription>
+        <value>Delete mechanic</value>
+    </labels>
+    <labels>
+        <fullName>Doctor_Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Doctor Details</shortDescription>
+        <value>Doctor Details</value>
+    </labels>
+    <labels>
+        <fullName>Doctor_List</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Doctor List</shortDescription>
+        <value>Doctor List</value>
+    </labels>
+    <labels>
+        <fullName>Edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Doctor</shortDescription>
+        <value>Edit Doctor</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Hospital</shortDescription>
+        <value>Edit Hospital</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Photo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Photo</shortDescription>
+        <value>Edit Photo</value>
+    </labels>
+    <labels>
+        <fullName>Edit_mechanic</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit_mechanic</shortDescription>
+        <value>Edit mechanic</value>
+    </labels>
+    <labels>
+        <fullName>Edit_workshop</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit_workshop</shortDescription>
+        <value>Edit workshop</value>
+    </labels>
+    <labels>
+        <fullName>Email</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>Export_to_CSV</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Export to CSV</shortDescription>
+        <value>Export to CSV</value>
+    </labels>
+    <labels>
+        <fullName>Export_to_XLSX</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Export to XLSX</shortDescription>
+        <value>Export to XLSX</value>
+    </labels>
+    <labels>
+        <fullName>First</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>First</shortDescription>
+        <value>First</value>
+    </labels>
+    <labels>
+        <fullName>First_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>First Name</shortDescription>
+        <value>First Name</value>
+    </labels>
+    <labels>
+        <fullName>Full_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Full Name</shortDescription>
+        <value>Full Name</value>
+    </labels>
+    <labels>
+        <fullName>Get_Template</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Get Template</shortDescription>
+        <value>Get Template</value>
+    </labels>
+    <labels>
+        <fullName>Hospital_Contracts</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hospital Contracts</shortDescription>
+        <value>Hospital Contracts</value>
+    </labels>
+    <labels>
+        <fullName>Hospital_Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hospital Details</shortDescription>
+        <value>Hospital Details</value>
+    </labels>
+    <labels>
+        <fullName>Hospital_Info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hospital_Info</shortDescription>
+        <value>Hospital Info</value>
+    </labels>
+    <labels>
+        <fullName>Hospitals</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hospitals</shortDescription>
+        <value>Hospitals</value>
+    </labels>
+    <labels>
+        <fullName>Import</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import</shortDescription>
+        <value>Import</value>
+    </labels>
+    <labels>
+        <fullName>Import_Data</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import Data</shortDescription>
+        <value>Import Data</value>
+    </labels>
+    <labels>
+        <fullName>Import_Doctors</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import Doctors</shortDescription>
+        <value>Import Doctors</value>
+    </labels>
+    <labels>
+        <fullName>Import_Info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import Info</shortDescription>
+        <value>Import Info</value>
+    </labels>
+    <labels>
+        <fullName>Last</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last</shortDescription>
+        <value>Last</value>
+    </labels>
+    <labels>
+        <fullName>Last_Modified_By</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Modified By</shortDescription>
+        <value>Last Modified By</value>
+    </labels>
+    <labels>
+        <fullName>Last_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Name</shortDescription>
+        <value>Last Name</value>
+    </labels>
+    <labels>
+        <fullName>Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>New</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>New_Hospital_Contract</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Hospital Contract</shortDescription>
+        <value>New Hospital Contract</value>
+    </labels>
+    <labels>
+        <fullName>New_mechanic</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New mechanic</shortDescription>
+        <value>New mechanic</value>
+    </labels>
+    <labels>
+        <fullName>New_workshop</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New_workshop</shortDescription>
+        <value>New workshop</value>
+    </labels>
+    <labels>
+        <fullName>Next</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>No</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>None</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>None</shortDescription>
+        <value>None</value>
+    </labels>
+    <labels>
+        <fullName>Operation_successful</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Operation successful</shortDescription>
+        <value>Operation successful.</value>
+    </labels>
+    <labels>
+        <fullName>Phone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>Previous</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Previous</shortDescription>
+        <value>Previous</value>
+    </labels>
+    <labels>
+        <fullName>Process</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Process</shortDescription>
+        <value>Process</value>
+    </labels>
+    <labels>
+        <fullName>Records_per_page</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Records per page</shortDescription>
+        <value>Records per page:</value>
+    </labels>
+    <labels>
+        <fullName>Restore</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Restore</shortDescription>
+        <value>Restore</value>
+    </labels>
+    <labels>
+        <fullName>Reverse</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reverse</shortDescription>
+        <value>Reverse</value>
+    </labels>
+    <labels>
+        <fullName>Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Save_New</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save &amp; New</shortDescription>
+        <value>Save &amp; New</value>
+    </labels>
+    <labels>
+        <fullName>Search</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>Search_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Doctor</shortDescription>
+        <value>Search Doctor</value>
+    </labels>
+    <labels>
+        <fullName>Search_Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Hospital</shortDescription>
+        <value>Search Hospital</value>
+    </labels>
+    <labels>
+        <fullName>Search_Mechanics</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Mechanics</shortDescription>
+        <value>Search Mechanics</value>
+    </labels>
+    <labels>
+        <fullName>Search_results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search results</shortDescription>
+        <value>Search results</value>
+    </labels>
+    <labels>
+        <fullName>Search_workshop</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search_workshop</shortDescription>
+        <value>Search workshop</value>
+    </labels>
+    <labels>
+        <fullName>Select</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>To_Import</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To Import</shortDescription>
+        <value>To Import</value>
+    </labels>
+    <labels>
+        <fullName>View</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>Yes</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Yes</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>Your_new_avatar</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your new avatar</shortDescription>
+        <value>Your new avatar</value>
+    </labels>
+</CustomLabels>

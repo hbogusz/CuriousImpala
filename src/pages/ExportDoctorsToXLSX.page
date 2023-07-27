@@ -1,0 +1,17 @@
+<!--
+ - Created by hubert.bogusz on 14.04.2022.
+ -->
+
+<apex:page id="ExportDoctorsToXLSX" controller="DoctorsController" contentType="application/vnd.ms-excel#Export.xlsx" showHeader="false" standardStylesheets="false">
+        <head>
+                <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        </head>
+        <apex:pageBlock >
+                <apex:dataTable value="{!doctors}" var="doctor">
+                        <apex:column headerValue="First Name" value="{!doctor.First_Name__c}"/>
+                        <apex:column headerValue="Last Name" value="{!doctor.Name}"/>
+                        <apex:column headerValue="Email" value="{!doctor.Email__c}"/>
+                        <apex:column headerValue="Specialization" value="{!doctor.Specialization__c}"/>
+                </apex:dataTable>
+        </apex:pageBlock>
+</apex:page>
