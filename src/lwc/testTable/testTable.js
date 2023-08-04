@@ -5,7 +5,7 @@ export default class testTable extends LightningElement {
     columns = [
         {
             type: 'icon',
-            initialWidth: 40,
+            initialWidth: 60,
             hideLabel: true,
             hideDefaultActions: true,
             typeAttributes: {
