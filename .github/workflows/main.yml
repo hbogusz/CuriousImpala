@@ -1,0 +1,32 @@
+stages:
+    - validation
+    - deployment
+
+image: hubertbogusz
+
+validation on QA:
+    stage: validation
+    variables:
+        GIT_DEPTH: 0
+    environment: QA
+    rules:
+        - if: $CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'QA'
+    script:
+        - sfdx plugins:install sfdx-git-delta@5.19.0
+        - sfdx sgd:source:delta --to "HEAD" --from "origin/QA" --output .
+        - sfdx force:auth:jwt:grant -i $QA_CONSUMER_KEY --jwtkeyfile $CERTIFICATE_PATH -u $QA_USERNAME -d -a QA -r $SANDBOX_AUTH_URL
+        - sfdx force:source:deploy -c -x package/package.xml --postdestructivechanges destructiveChanges/destructiveChanges.xml -l RunLocalTests -w 60 -u QA --verbose -g
+
+deploy to QA:
+    stage: deployment
+    variables:
+        GIT_DEPTH: 0
+    environment: QA
+    only:
+        - QA
+    script:
+        - sfdx plugins:install sfdx-git-delta@5.19.0
+        - sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output .
+        - sfdx force:auth:jwt:grant -i $QA_CONSUMER_KEY --jwtkeyfile $CERTIFICATE_PATH -u $QA_USERNAME -d -a QA -r $SANDBOX_AUTH_URL
+        - sfdx force:source:deploy -x package/package.xml --postdestructivechanges destructiveChanges/destructiveChanges.xml -l NoTestRun -w 60 -u QA --verbose -g
+
